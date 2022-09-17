@@ -49,7 +49,6 @@ const MenuProductScreen = ({navigation, route}) => {
         return <Route7 name={navigation} />;
       case 8:
         return <Route8 name={navigation} />;
-
       default:
         return null;
     }
