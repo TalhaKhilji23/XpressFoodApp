@@ -52,7 +52,7 @@ const RestaurantHomeScreen = ({navigation, route}) => {
             <View style={styles.view1}>
               <Text style={styles.text1}>
                 GET {id && restaurant && restaurantsData[id].discount}% OFF ON
-                FOOD TOTAL
+                blahh FOOD TOTAL
               </Text>
             </View>
           )}
