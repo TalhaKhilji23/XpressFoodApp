@@ -7,16 +7,14 @@ import {Icon} from '@rneui/base';
 import SearchScreen from '../screens/SearchScreen';
 import MyAccountScreen from '../screens/MyAccountScreen';
 import MyOrderScreen from '../screens/MyOrderScreen';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 // import ClientStack from './ClientStack';
 
 const Tab = createBottomTabNavigator();
-
+const ClientSearch = createNativeStackNavigator();
 const ClientTabs = () => {
   return (
-    
-
-    
-    <Tab.Navigator>
+    <Tab.Navigator >
       <Tab.Screen
         name="HomeScreen1"
         component={HomeScreen}
@@ -65,9 +63,6 @@ const ClientTabs = () => {
           ),
         }}
       />
-      
-
-      
     </Tab.Navigator>
   );
 };

@@ -49,7 +49,7 @@ const FoodCard = ({
 
       <View style={styles.review}>
         <Text style={styles.average}>{averageReview}</Text>
-        <Text sytle={styles.txt}>{numberOfReview} reviews</Text>
+        <Text style={styles.txt}>{numberOfReview} reviews</Text>
       </View>
     </TouchableOpacity>
   );
@@ -116,8 +116,8 @@ const styles = StyleSheet.create({
     marginTop: 3,
   },
   txt: {
+    fontSize: 10,
     color: 'white',
-    fontSize: 13,
     // marginRight: 0,
     // marginLeft:0
   },

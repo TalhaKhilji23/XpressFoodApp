@@ -14,8 +14,9 @@ import {colors, fonts} from '../global/style';
 import {Icon} from '@rneui/base';
 import {useEffect} from 'react';
 import {TabBar, TabView} from 'react-native-tab-view';
+import MenuScreen from './RestaurantTabs/MenuScreen';
 const SCREEN_WIDTH = Dimensions.get('window').width;
-// const initialLayout = SCREEN_WIDTH;
+const initialLayout = SCREEN_WIDTH;
 
 const RestaurantHomeScreen = ({navigation, route}) => {
   const {id, restaurant} = route.params;
@@ -26,33 +27,37 @@ const RestaurantHomeScreen = ({navigation, route}) => {
     {key: 'fourth', title: 'GALLERY'},
   ]);
 
-  const [currentResutaurant, setCurrentRestaurant] = useState([]);
-
-  // const get = () => {
-  //   const result = 'api call';
-  //   setCurrentRestaurant(result);
-  // }
-
-  useEffect(() => {
-    console.log('xxxxxxxxxxxxxxxxxxxxxxxx');
-    const result = restaurantsData.filter(item => item.id === id);
-    setCurrentRestaurant(result);
-  }, []);
-
   const [index, setIndex] = useState(0);
+
+  const renderTabBar = props => (
+    <TabBar
+      {...props}
+      indicatorStyle={{backgroundColor: colors.Cardbackground}}
+      tabStyle={styles.tabStyle}
+      scrollEnabled={true}
+      style={styles.tab}
+      labelStyle={styles.tabLabel}
+      contentContainerStyle={styles.tabContainer}
+    />
+  );
+
+  const UpdateRoute1 = () => {
+    return <View></View>;
+  };
+
+  const menuPressed = () => {
+    navigation.navigate('MenuProductScreen');
+  };
 
   return (
     <View style={styles.container}>
-      {/* {currentResutaurant && <View></View>} */}
       <ScrollView>
         <View>
           <RestaurantHeader id={id} navigation={navigation} />
-
           {restaurantsData[id].discount && (
             <View style={styles.view1}>
               <Text style={styles.text1}>
-                GET {id && restaurant && restaurantsData[id].discount}% OFF ON
-                blahh FOOD TOTAL
+                GET {restaurantsData[id].discount}% OFF ON FOOD TOTAL
               </Text>
             </View>
           )}
@@ -106,13 +111,20 @@ const RestaurantHomeScreen = ({navigation, route}) => {
             </View>
           </View>
         </View>
+
+        <View style={styles.view10}>
+          <TabView
+            navigationState={{index, routes}}
+            renderScene={UpdateRoute1}
+            onIndexChange={setIndex}
+            initialLayout={initialLayout}
+            renderTabBar={renderTabBar}
+            tabBarPosition="top"
+          />
+        </View>
+
+        {index === 0 && <MenuScreen onPress={menuPressed} />}
       </ScrollView>
-      {/* <View style = {styles.view10}>
-        <TabView navigationState={}>
-
-        </TabView>
-
-      </View> */}
 
       <TouchableOpacity>
         <View style={styles.view11}>
@@ -131,7 +143,7 @@ const RestaurantHomeScreen = ({navigation, route}) => {
 export default RestaurantHomeScreen;
 
 const styles = StyleSheet.create({
-  container: {flex: 1, paddingTop: 20},
+  container: {flex: 1},
 
   view1: {
     padding: 3,
@@ -196,7 +208,7 @@ const styles = StyleSheet.create({
 
   view8: {flex: 3, alignItems: 'center'},
 
-  text9: {fontSize: 15, fontWeight: 'bold', color: colors.cardbackground},
+  text9: {fontSize: 15, fontWeight: 'bold', color: colors.Cardbackground},
 
   view9: {
     width: 40,
@@ -210,11 +222,11 @@ const styles = StyleSheet.create({
   text10: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: colors.cardbackground,
+    color: colors.Cardbackground,
     marginTop: 5,
   },
 
-  text11: {fontSize: 13, color: colors.cardbackground, marginBottom: 5},
+  text11: {fontSize: 13, color: colors.Cardbackground, marginBottom: 5},
 
   view10: {elevation: 10, backgroundColor: colors.pagebackground},
 
@@ -236,22 +248,23 @@ const styles = StyleSheet.create({
     padding: 10,
     fontWeight: 'bold',
     fontSize: 18,
-    color: colors.cardbackground,
+    color: colors.Cardbackground,
   },
 
   view13: {
-    borderWidth: 1,
     marginRight: 10,
-    borderColor: colors.cardbackground,
-    borderRadius: 6,
+    borderColor: colors.Cardbackground,
+    borderRadius: 26,
     paddingBottom: 2,
+    paddingVertical: 5,
   },
 
   text13: {
-    paddingHorizontal: 3,
+    paddingHorizontal: 10,
+    marginLeft: 15,
     fontWeight: 'bold',
     fontSize: 18,
-    color: colors.cardbackground,
+    color: colors.Cardbackground,
   },
 
   tab: {
@@ -267,7 +280,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  tabLabel: {fontWeight: 'bold', color: colors.cardbackground},
+  tabLabel: {fontWeight: 'bold', color: colors.Cardbackground},
 
   tabStyle: {width: SCREEN_WIDTH / 4, maxHeight: 45},
 

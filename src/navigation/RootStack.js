@@ -11,13 +11,14 @@ import DrawerNavigation from './DrawerNavigation';
 import SearchResultScreen from '../screens/SearchResultScreen';
 import RestaurantMapScreen from '../screens/RestaurantMapScreen';
 import RestaurantHomeScreen from '../screens/RestaurantHomeScreen';
+import Settings from '../screens/Settings';
 const Stack = createNativeStackNavigator();
 
 const RootStack = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        // initialRouteName="RestaurantHomeScreen"
+        // initialRouteName="Settings"
         initialRouteName="SignInWelcomeScreen"
         screenOptions={{
           headerStyle: {
@@ -70,6 +71,13 @@ const RootStack = () => {
         <Stack.Screen
           name="RestaurantHomeScreen"
           component={RestaurantHomeScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Settings"
+          component={Settings}
           options={{
             headerShown: false,
           }}

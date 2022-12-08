@@ -13,9 +13,9 @@ import ProductCard from './ProductCard';
 export default function SearchResultCard({
   OnPressRestaurantCard,
   restaurantName,
-  deliveryAvailabe,
-  discountAvailable,
-  discountPercent,
+  // deliveryAvailabe,
+  // discountAvailable,
+  // discountPercent,
   numberOfReview,
   businessAddress,
   farAway,

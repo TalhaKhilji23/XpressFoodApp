@@ -1,22 +1,23 @@
-import React,{useState} from 'react'
+import {StyleSheet, Text, View} from 'react-native';
+import React from 'react';
+import GeneralHeader from '../component/GeneralHeader';
+import {colors} from '../global/style';
 
-import {View, Text, StyleSheet,TouchableOpacity,
-         ScrollView,FlatList,Pressable, Image, Dimensions} from 'react-native';
-import { Icon} from 'react-native-elements'
-
-export default function BusinessConsoleScreen(){
-
-    return(
-        <View style = {styles.container}>
-            <Text>Welcome to Business console</Text>
-        </View>
-    )
+export default function BusinessConsoleScreen({navigation, props}) {
+  return (
+    <View>
+      <GeneralHeader
+        navigation={navigation}
+        props={'BusinnesConsole'}></GeneralHeader>
+      <View style={styles.container}>
+        <Text>BusinessConsoleScreen</Text>
+      </View>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        alignItems:'center',
-        justifyContent:"center"
-    }
-})
+  container: {
+    marginTop: 30,
+  },
+});

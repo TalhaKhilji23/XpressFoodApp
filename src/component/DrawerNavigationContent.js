@@ -99,54 +99,6 @@ const DrawerNavigationContent = props => {
 
         <DrawerItemList {...props} />
 
-        <DrawerItem
-          label={'Payment'}
-          icon={({color, size}) => (
-            <Icon
-              type="material-community"
-              name="credit-card-outline"
-              color={color}
-              size={size}
-            />
-          )}
-        />
-
-        <DrawerItem
-          label={'Promotions'}
-          icon={({color, size}) => (
-            <Icon
-              type="material-community"
-              name="tag-heart"
-              color={color}
-              size={size}
-            />
-          )}
-        />
-
-        <DrawerItem
-          label={'Setting'}
-          icon={({color, size}) => (
-            <Icon
-              type="material-community"
-              name="cog-outline"
-              color={color}
-              size={size}
-            />
-          )}
-        />
-
-        <DrawerItem
-          label={'Help'}
-          icon={({color, size}) => (
-            <Icon
-              type="material-community"
-              name="lifebuoy"
-              color={color}
-              size={size}
-            />
-          )}
-        />
-
         <View style={{borderTopWidth: 1, borderTopColor: colors.grey5}}>
           <Text style={styles.preferences}>Prefrences</Text>
 
@@ -186,7 +138,7 @@ const styles = StyleSheet.create({
   avatar: {
     borderWidth: 3,
 
-    borderColor: "white",
+    borderColor: 'white',
   },
   avatarContainer: {
     flexDirection: 'row',

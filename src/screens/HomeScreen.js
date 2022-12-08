@@ -28,7 +28,7 @@ const HomeScreen = ({navigation}) => {
     <View sytle={styles.container}>
       <HomeHeader navigation={navigation} />
       <ScrollView
-        stickyHeaderIndices={[0]}
+        // stickyHeaderIndices={[0]}
         showsVerticalScrollIndicator={true}
         vertical={true}>
         <View>
@@ -116,7 +116,7 @@ const HomeScreen = ({navigation}) => {
         </View>
 
         <View style={styles.headigView}>
-          <Text style={styles.headingText}>Catogeries</Text>
+          <Text style={styles.headingText}>Categories</Text>
         </View>
 
         <View>
@@ -306,24 +306,26 @@ const styles = StyleSheet.create({
     marginLeft: 20,
   },
   smallCard: {
-    borderRadius: 20,
+    borderRadius: 10,
     backgroundColor: colors.grey5,
     justifyContent: 'center',
     alignItems: 'center',
     padding: 5,
     width: 90,
-    margin: 10,
+    marginLeft: 8,
     marginTop: 20,
+    marginHorizontal: 5,
     height: 90,
+    marginBottom: 17,
   },
   smallCardSelected: {
-    borderRadius: 20,
+    borderRadius: 10,
     justifyContent: 'center',
     backgroundColor: colors.buttons,
     alignItems: 'center',
     padding: 10,
     width: 100,
-    margin: 15,
+    margin: 10,
     height: 100,
   },
   smallCardTextSelected: {
@@ -337,12 +339,13 @@ const styles = StyleSheet.create({
   floatingButton: {
     position: 'absolute',
     bottom: 70,
+    paddingTop: 5,
     right: 20,
     backgroundColor: 'white',
     elevation: 20,
-    width: 70,
-    height: 70,
-    borderRadius: 50,
+    width: 65,
+    height: 65,
+    borderRadius: 60,
     alignItems: 'center',
   },
 });
